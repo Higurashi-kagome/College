@@ -32,10 +32,3 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:com/zhangmingge/cmsservice/mapper/xml/*.xml
-
-aliyun:
-  msm:
-    keyid: LTAI5tJYqqAWSH4LvaaZFDB8
-    keysecret: 5GEkmK6a7Ghfcu961srvO9QblMdnzU
-    SignName: 阿里云短信测试
-    TemplateCode: SMS_154950909

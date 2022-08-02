@@ -14,6 +14,8 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <!--https://blog.csdn.net/m0_67391870/article/details/124396370-->
+        <maven.test.skip>true</maven.test.skip>
     </properties>
 
     <dependencies>

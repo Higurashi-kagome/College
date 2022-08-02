@@ -16,10 +16,10 @@
             <dd class="c-s-dl-li">
               <ul class="clearfix">
                 <li>
-                  <a title="全部" href="#">全部</a>
+                  <a title="全部" href="#" @click.prevent="init()">全部</a>
                 </li>
                 <li v-for="(item,index) in subjectNestedList" :key="index" :class="{active:oneIndex==index}">
-                  <a :title="item.title" href="#" @click="searchOne(item.id,index)">{{item.title}}</a>
+                  <a :title="item.title" href="#" @click.prevent="searchOne(item.id,index)">{{item.title}}</a>
                 </li>
               </ul>
             </dd>
@@ -31,7 +31,7 @@
             <dd class="c-s-dl-li">
               <ul class="clearfix">
                 <li v-for="(item,index) in subSubjectList" :key="index" :class="{active:twoIndex==index}">
-                  <a :title="item.title" href="#" @click="searchTwo(item.id,index)">{{item.title}}</a>
+                  <a :title="item.title" href="#" @click.prevent="searchTwo(item.id,index)">{{item.title}}</a>
                 </li>
               </ul>
             </dd>
@@ -143,38 +143,45 @@
 </template>
 <script>
 import courseApi from '@/api/course'
-
+const defaultData = {
+    page:1, //当前页
+    data:{},  //课程列表
+    subjectNestedList: [], // 一级分类列表
+    subSubjectList: [], // 二级分类列表
+    searchObj: {}, // 查询表单对象
+    oneIndex:-1,
+    twoIndex:-1,
+    buyCountSort:"",
+    gmtCreateSort:"",
+    priceSort:""
+}
 export default {
   data() {
-    return {
-      page:1, //当前页
-      data:{},  //课程列表
-      subjectNestedList: [], // 一级分类列表
-      subSubjectList: [], // 二级分类列表
-
-      searchObj: {}, // 查询表单对象
-
-      oneIndex:-1,
-      twoIndex:-1,
-      buyCountSort:"",
-      gmtCreateSort:"",
-      priceSort:""
-    }
+    return defaultData
   },
   created() {
-    //课程第一次查询
-    this.initCourseFirst()
-    //一级分类显示
-    this.initSubject()
+    this.init()
   },
   methods:{
+    //0 初始化页面
+    init() {
+        Object.assign(this.$data, {...this.$options.data()});
+        this.data = {}
+        this.subjectNestedList = []
+        this.subSubjectList = []
+        this.searchObj = {}
+        //课程第一次查询
+        this.initCourseFirst()
+        //一级分类显示
+        this.initSubject()
+    },
     //1 查询第一页数据
     initCourseFirst() {
-      courseApi.getCourseList(1,8,this.searchObj).then(response => {
-        this.data = response.data.data
-      })
+      courseApi.getCourseList(1,8,this.searchObj)
+        .then(response => {
+          this.data = response.data.data
+        })
     },
-
     //2 查询所有一级分类
     initSubject() {
       courseApi.getAllSubject()
@@ -182,19 +189,18 @@ export default {
           this.subjectNestedList = response.data.data.list
         })
     },
-
     //3 分页切换的方法
     gotoPage(page) {
       courseApi.getCourseList(page,8,this.searchObj).then(response => {
         this.data = response.data.data
       })
     },
-
     //4 点击某个一级分类，查询对应二级分类
     searchOne(subjectParentId,index) {
       //把传递index值赋值给oneIndex,为了active样式生效
       this.oneIndex = index
 
+      //清除二级分类数据
       this.twoIndex = -1
       this.searchObj.subjectId = ""
       this.subSubjectList = []
@@ -216,7 +222,6 @@ export default {
         }
       }
     },
-
     //5 点击某个二级分类实现查询
     searchTwo(subjectId,index) {
       //把index赋值,为了样式生效
@@ -226,7 +231,6 @@ export default {
       //点击某个二级分类进行条件查询
       this.gotoPage(1)
     },
-
     //6 根据销量排序
     searchBuyCount() {
       //设置对应变量值，为了样式生效
@@ -242,7 +246,6 @@ export default {
       //调用方法查询
       this.gotoPage(1)
     },
-
     //7 最新排序
     searchGmtCreate() {
       //设置对应变量值，为了样式生效
@@ -258,7 +261,6 @@ export default {
       //调用方法查询
       this.gotoPage(1)
     },
-
     //8 价格排序
     searchPrice() {
       //设置对应变量值，为了样式生效
@@ -274,10 +276,8 @@ export default {
       //调用方法查询
       this.gotoPage(1)
     }
-
   }
 };
-// TODO 课程筛选中的“全部”按钮
 </script>
 <style scoped>
   .active {

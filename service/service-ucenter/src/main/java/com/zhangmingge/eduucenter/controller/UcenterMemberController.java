@@ -46,6 +46,7 @@ public class UcenterMemberController {
 	@GetMapping("getMemberInfo")
 	public R getMemberInfo(HttpServletRequest request) {
 		//调用jwt工具类的方法。根据request对象获取头信息，返回用户id
+		//TODO 判断是否登录，登录了才调用 getMemberIdByJwtToken（同时完善前端）
 		String memberId = JwtUtils.getMemberIdByJwtToken(request);
 		//查询数据库根据用户id获取用户信息
 		UcenterMember member = memberService.getById(memberId);

@@ -4,21 +4,12 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * 阿里云 vod
+ * 不同的服务器，地址不同
+ */
 @Component
-public class ConstantVodUtils implements InitializingBean {
-
-    @Value("${aliyun.vod.file.keyid}")
-    private String keyId;
-
-    @Value("${aliyun.vod.file.keysecret}")
-    private String keySecret;
-
-    public static String ACCESS_KEY_SECRET;
-    public static String ACCESS_KEY_ID;
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        ACCESS_KEY_ID = keyId;
-        ACCESS_KEY_SECRET = keySecret;
-    }
+public class ConstantVodUtils {
+    public static String ACCESS_KEY_SECRET = "5GEkmK6a7Ghfcu961srvO9QblMdnzU";
+    public static String ACCESS_KEY_ID = "LTAI5tJYqqAWSH4LvaaZFDB8";
 }

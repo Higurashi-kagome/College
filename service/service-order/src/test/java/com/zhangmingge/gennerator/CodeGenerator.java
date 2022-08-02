@@ -21,7 +21,7 @@ public class CodeGenerator {
         // 2、全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/src/main/java");
+        gc.setOutputDir(projectPath + "/src/main/java"); //<<<<输出目录
         gc.setAuthor("CodeGenerator");
         gc.setOpen(true); //生成后是否打开资源管理器
         gc.setFileOverride(false); //重新生成时文件是否覆盖
@@ -34,17 +34,19 @@ public class CodeGenerator {
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
+                                                         //<<<<数据库
         dsc.setUrl("jdbc:mysql://localhost:3306/guli?serverTimezone=GMT%2B8");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123");
         dsc.setDbType(DbType.MYSQL);
+                                                         //<<<<数据库
         mpg.setDataSource(dsc);
 
-        // 4、包配置 com.zhangmingge.eduservice 下有 controller 等各个子包
+        // 4、包配置：com.zhangmingge.eduorder 下有 controller 等各个子包
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.zhangmingge");//<<<<<<<<<<<<<<<<<<<<<模块所在包
-        pc.setModuleName("eduorder"); //<<<<<<<<<<<<<<<<<<<<<模块名
+        pc.setParent("com.zhangmingge");                 //<<<<模块所在包
+        pc.setModuleName("eduorder");                    //<<<<模块名
         pc.setController("controller");
         pc.setEntity("entity");
         pc.setService("service");
@@ -53,9 +55,9 @@ public class CodeGenerator {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("t_order", "t_pay_log");//<<<<<<<<<<<<<<<表名
+        strategy.setInclude("t_order", "t_pay_log");     //<<<<表名
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
-        strategy.setTablePrefix("t_"); //<<<<<<<<<<<<<<<生成实体时去掉表前缀
+        strategy.setTablePrefix("t_");                   //<<<<生成实体类时去掉表前缀
 
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略
         strategy.setEntityLombokModel(true); // lombok 模型 @Accessors(chain = true) setter链式操作

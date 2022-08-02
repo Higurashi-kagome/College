@@ -1,7 +1,7 @@
 # 讲师管理模块配置、编写后台管理api接口
 
 1. 讲师管理模块配置
-   1. 在service下面service-edu模块中创建配置文件
+   1. 在service下面的service-edu模块中创建配置文件
    2. 创建MP代码生成器
 2. 编写后台管理api接口
    1. 编写controller代码

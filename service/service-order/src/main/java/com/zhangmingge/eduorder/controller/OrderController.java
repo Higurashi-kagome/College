@@ -28,6 +28,7 @@ public class OrderController {
 	@PostMapping("createOrder/{courseId}")
 	public R saveOrder(@PathVariable String courseId, HttpServletRequest request) {
 		//创建订单，返回订单号
+		//TODO 判断是否登录，登录了才调用 getMemberIdByJwtToken（同时完善前端）
 		String orderNo =
 				orderService.createOrders(courseId, JwtUtils.getMemberIdByJwtToken(request));
 		return R.ok().data("orderId", orderNo);

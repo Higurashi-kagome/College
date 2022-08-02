@@ -1,71 +1,71 @@
-[README01](service/service-edu/README01.md)
+[讲师管理模块配置、编写后台管理api接口](service/service-edu/README01.md)
 
-[README02](service/service-edu/README02.md)
+[讲师逻辑删除功能](service/service-edu/README02.md)
 
-[README03](service/service-edu/README03.md)
+[统一返回结果对象](service/service-edu/README03.md)
 
-[README04](service/service-edu/README04.md)
+[分页和条件查询接口开发](service/service-edu/README04.md)
 
-[README05](service/service-edu/README05.md)
+[分页和条件查询接口开发](service/service-edu/README05.md)
 
-[README06](service/service-edu/README06.md)
+[统一异常处理](service/service-edu/README06.md)
 
-[README07](service/service-edu/README07.md)
+[统一日志处理](service/service-edu/README07.md)
 
-[README08](service/service-edu/README08.md)
+[前端开发和前端开发工具](service/service-edu/README08.md)
 
-[README09](service/service-edu/README09.md)
+[ES6](service/service-edu/README09.md)
 
-[README10](service/service-edu/README10.md)
+[Vue](service/service-edu/README10.md)
 
-[README11](service/service-edu/README11.md)
+[Node](service/service-edu/README11.md)
 
-[README12](service/service-edu/README12.md)
+[模块化](service/service-edu/README12.md)
 
-[README13](service/service-edu/README13.md)
+[Webpack](service/service-edu/README13.md)
 
-[README14](vue-admin/README14.md)
+[搭建项目前端](vue-admin/README14.md)
 
-[README15](vue-admin/README15.md)
+[改造登录到本地接口](vue-admin/README15.md)
 
-[README16](vue-admin/README16.md)
+[前端框架开发过程介绍](vue-admin/README16.md)
 
-[README17](vue-admin/README17.md)
+[讲师列表-查询-删除](vue-admin/README17.md)
 
-[README18](service/service-oss/README18.md)
+[头像上传](service/service-oss/README18.md)
 
-[README19](service/service-oss/README19.md)
+[使用nginx配置后台多服务器api](service/service-oss/README19.md)
 
-[README20](vue-admin/README20.md)
+[前端整合上传组件](vue-admin/README20.md)
 
-[README21](easyExcelDemo/README21.md)
+[EasyExcel读写Excel的基本使用](easyExcelDemo/README21.md)
 
-[README22](service/service-edu/README22.md)
+[课程分类](service/service-edu/README22.md)
 
-[README23](service/service-edu/README23.md)
+[课程管理1](service/service-edu/README23.md)
 
-[README24](service/service-edu/README24.md)
+[课程管理2](service/service-edu/README24.md)
 
-[README25](service/service-edu/README25.md)
+[课程列表、视频点播、删除视频（重新上传）](service/service-edu/README25.md)
 
-[README26](service/service-vod/README26.md)
+[课程删除](service/service-vod/README26.md)
 
-[README27](vue-front/README27.md)
+[前台搭建](vue-front/README27.md)
 
-[README28](service/service-cms/README28.md)
+[登录和注册1](service/service-cms/README28.md)
 
-[README29](service/service-cms/README29.md)
+[登录和注册2](service/service-cms/README29.md)
 
-[README30](service/service-edu/README30.md)
+[名师、课程、评论](service/service-edu/README30.md)
 
-[README31](service/service-order/README31.md)
+[订单、支付](service/service-order/README31.md)
 
-[README32](service/service-order/README32.md)
+[支付、统计分析](service/service-order/README32.md)
 
-[README33](service/service-acl/README33.md)
+[canal、网关、权限管理](service/service-acl/README33.md)
 
-[README34](service/service-acl/README34.md)
+[权限管理、配置中心、Git](service/service-acl/README34.md)
 
-[README35](service/service-acl/README35.md)
+[Git、持续化集成](service/service-acl/README35.md)
 
-[README36](README36.md)
+[总结](README36.md)

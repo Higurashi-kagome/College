@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/educms/banneradmin")
 // @CrossOrigin
 public class BannerAdminController {
-	//TODO：后台管理前台（vue-admin）
+	//TODO：banner后台管理页面
 	@Autowired
 	private CrmBannerService bannerService;
 

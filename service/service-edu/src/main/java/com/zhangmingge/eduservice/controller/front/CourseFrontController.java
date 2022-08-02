@@ -13,6 +13,7 @@ import com.zhangmingge.eduservice.service.EduCourseService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -51,9 +52,14 @@ public class CourseFrontController {
         //根据课程id查询章节和小节
         List<ChapterVo> chapterVideoList = chapterService.getChapterVideoByCourseId(courseId);
         //根据课程id和用户id查询当前课程是否已经支付过了
-        //TODO 判断是否登录，登录了才调用 getMemberIdByJwtToken
-        boolean buyCourse = ordersClient.isBuyCourse(courseId, JwtUtils.getMemberIdByJwtToken(request));
-        return R.ok().data("courseWebVo",courseWebVo).data("chapterVideoList",chapterVideoList).data("isBuy",buyCourse);
+        //TODO 判断是否登录，登录了才调用 getMemberIdByJwtToken（同时完善前端）
+        String userId = JwtUtils.getMemberIdByJwtToken(request);
+        if (!StringUtils.isEmpty(userId)){
+            boolean buyCourse = ordersClient.isBuyCourse(courseId, userId);
+            return R.ok().data("courseWebVo",courseWebVo).data("chapterVideoList",chapterVideoList).data("isBuy",buyCourse);
+        } else {
+            return R.error().message("未登录");
+        }
     }
 
     //根据课程id查询课程信息
