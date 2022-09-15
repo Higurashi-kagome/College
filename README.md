@@ -1,3 +1,5 @@
+[项目介绍和MyBatisPlus入门](./doc/day01/day01项目【项目介绍和MyBatisPlus入门】)
+
 [讲师管理模块配置、编写后台管理api接口](service/service-edu/README01.md)
 
 [讲师逻辑删除功能](service/service-edu/README02.md)
